@@ -1,0 +1,78 @@
+$color-text: #222D54;
+$asato:#0A4EFF;
+
+
+// Миксины
+@mixin h1_asato {
+    font: {
+        family: PT Root UI Web;
+        weight: bold;
+        size: 36px;
+
+    }
+
+    @media screen and (max-width: 540px) {
+        font-size: 26px;
+    }
+
+    color: $color-text;
+}
+
+@mixin medium_asato($color) {
+    font: {
+        family: PT Root UI Web;
+        weight: 500;
+        size: 16px;
+    }
+
+    color: $color;
+}
+
+@mixin regular_asato {
+    font: {
+        family: PT Root UI Web;
+        weight: normal;
+        size: 16px;
+    }
+
+    color: $color-text;
+}
+
+@mixin link_asato($color, $float) {
+    font: {
+        family: PT Root UI Web;
+        weight: 500;
+        size: 16px;
+    }
+
+    color: $color;
+    float: $float;
+    text-decoration: none;
+}
+
+@mixin arrow_link($background-image) {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: $background-image;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    position: relative;
+    top: 2px;
+}
+
+@mixin indentation {
+    margin-top: 80px;
+    @media screen and (max-width: 768px) {
+        margin-top: 40px;
+    }
+}
+@mixin listAsato {
+    background-image: url(img/list_icon.svg);
+    background-repeat: no-repeat;
+    background-position: center left;
+    padding-left: 50px;
+    background-size: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 35px;
+}
