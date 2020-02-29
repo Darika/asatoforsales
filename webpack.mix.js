@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-
+const config = require('./webpack.config')
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -13,3 +13,8 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
+mix.sass('resources/sass/style.scss', 'public/css');
+mix.sass('resources/sass/mixins.scss', 'public/css');
+mix.webpackConfig(config)
+
+
