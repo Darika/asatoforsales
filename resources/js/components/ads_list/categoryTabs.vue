@@ -29,6 +29,7 @@ export default {
         { items: "Земельные участки", active: false },
         { items: "Коммерческая недвижемость", active: true },
         { items: "Новостройки", active: false }
+
       ],
       styleDrop: false
     };

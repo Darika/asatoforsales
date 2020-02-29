@@ -32,7 +32,9 @@
           :key="index"
           :id="index"
           :arrayAds="dataCardAds"
+          v-loading="loading"
         />
+    <paginationAsato/>
       </div>
 
 
@@ -47,6 +49,7 @@ import filters from "./filters";
 import dropSelectDark from "../global/dropSelectDark";
 import presentationMode from "../global/presetationMode";
 import adsItem from "../ads_list/adsItem/adsItem";
+import paginationAsato from "@/components/global/paginationAsato"
 
 
 export default {
@@ -56,10 +59,12 @@ export default {
     dropSelectDark,
     presentationMode,
     adsItem,
+    paginationAsato
 
   },
   data() {
     return {
+        loading: true,
       filtersSort: [
         { items: "По рейтингу", active: false },
         { items: "По цене", active: false },
@@ -73,6 +78,11 @@ export default {
       dataCardAds(){
          return this.$store.getters.getArticle
       }
+  },
+  mounted(){
+      setTimeout(() => {
+           return this.loading = !this.loading
+      }, 3000);
   }
 };
 </script>

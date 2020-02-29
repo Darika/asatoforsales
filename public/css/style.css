@@ -3778,8 +3778,7 @@ footer .anthoter_info a:hover {
 }
 
 .contextMenuSelect a:hover {
-  background: #4a7dff;
-  color: white;
+  background: #f5f7fa;
 }
 
 .main {
@@ -3889,5 +3888,43 @@ footer .anthoter_info a:hover {
   object-position: center;
   width: 100%;
   border-radius: 4px;
+}
+
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+  background-color: #0A4EFF !important;
+  color: #FFF;
+}
+
+.el-pagination {
+  white-space: normal !important;
+  padding: 24px 8px !important;
+  color: #303133;
+  font-weight: 700;
+  width: 600px;
+  max-width: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+}
+
+.el-pagination :not(active) {
+  background-color: none;
+}
+
+.el-select {
+  width: 100%;
+}
+
+.el-select-dropdown__item {
+  font-size: 16px !important;
+  padding: 0 16px !important;
+}
+
+.el-pagination.is-background .btn-next,
+.el-pagination.is-background .btn-prev,
+.el-pagination.is-background .el-pager li {
+  background: none !important;
 }
 

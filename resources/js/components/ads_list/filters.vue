@@ -18,7 +18,7 @@
                 Сортировка</dropSelect>
           </div>
           <div class="col-12 col-lg-4 mb-4">
-            <dropSelect :cancelFilters="cancel" :listSelect="filtersCity">Настройка</dropSelect>
+            <dropSelect  :listSelect="filtersCity">Настройка</dropSelect>
           </div>
           <div class="col-12 col-lg-4 mb-4">
             <dropSelect :listSelect="filtersCity">Значение</dropSelect>
