@@ -2,6 +2,7 @@ import VueRouter from 'vue-router';
 import homePage from './components/homePage.vue'
 import adsPage from './components/ads_list/adsPage.vue'
 import adPage from './components/ads_list/adsItem/adsPage/adPage'
+import personalArea from './components/personalArea/defaultArea.vue'
 
 
 export default new VueRouter({
@@ -18,6 +19,10 @@ export default new VueRouter({
         {
             path: '/adspage-1',
             component: adPage
+        },
+        {
+            path: '/personal-area',
+            component: personalArea
         }
 
     ],

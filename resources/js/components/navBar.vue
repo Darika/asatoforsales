@@ -17,7 +17,7 @@
           <a href="#">Агенства-партнеры</a>
         </li>
         <li>
-          <a href="#">Карьева в ASATO</a>
+           <a href="#">Карьева в ASATO</a>
         </li>
         <li>
           <router-link to="/test-car" href="#">Контакты</router-link>
@@ -40,11 +40,11 @@
                         <a href="#">Сообщения</a>
                     </li>
                     <li class="user_item_menu">
-                        <a href="#">Профиль</a>
+                         <router-link to="/personal-area">Профиль</router-link>
                     </li>
-                    <li class="setting_item_menu">
+                    <!-- <li class="setting_item_menu">
                         <a href="#">Настройки</a>
-                    </li>
+                    </li> -->
                     <li class="out_item_menu">
                         <a href="#">Выход</a>
                     </li>
@@ -98,11 +98,11 @@
                         <a href="#">Сообщения</a>
                     </li>
                     <li class="user_item_menu">
-                        <a href="#">Профиль</a>
+                      <router-link to="/personal-area">Профиль</router-link>
                     </li>
-                    <li class="setting_item_menu">
+                    <!-- <li class="setting_item_menu">
                         <a href="#">Настройки</a>
-                    </li>
+                    </li> -->
                     <li class="out_item_menu">
                         <a href="#">Выход</a>
                     </li>
