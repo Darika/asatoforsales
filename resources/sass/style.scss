@@ -363,6 +363,7 @@ nav {
         @include regular_asato;
         margin-bottom: 40px;
         margin-top: 30px;
+        line-height: 24px;
     }
 
 
@@ -406,7 +407,8 @@ nav {
         border-radius: 4px;
         padding: 24px;
         margin: 10px;
-        height: 350px;
+        height: auto;
+        min-height: 350px;
         cursor: pointer;
 
         @media screen and (max-width: 990px) {
@@ -463,6 +465,7 @@ nav {
 
         p {
             color: #98A0B5;
+            line-height: 24px;
         }
     }
 }
@@ -2526,10 +2529,23 @@ footer {
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
+
         p{
             display: inline-block;
             margin-bottom: 0;
             @include medium_asato(#979FB5)
+        }
+        .user_avatar_box{
+            margin-top: 20px;
+            width: 300px;
+            height: 300px;
+            border: 1px dashed #a8a8a8;
+            border-radius: 4px;
+            p{
+                text-align: center;
+                display: block;
+                margin-top: 130px;
+            }
         }
 
 
@@ -2537,6 +2553,7 @@ footer {
 }
 
 .upload_photo{
+    margin-top: 10px;
     @include medium_asato($asato);
     cursor: pointer;
     background-image: url(img/upload_icon.svg);

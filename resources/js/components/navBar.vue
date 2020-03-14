@@ -27,8 +27,8 @@
       <div v-if="loginOn" class="ml-auto menu__desktop__user">
         <div  @click="dropdownMenu = !dropdownMenu" class="user_menu">
           <img src="images/user_photo_default.svg" alt="user_ava" />
-          <h3>{{ userParams.nameUser }}</h3>
-          <span>{{ userParams.roleUser }}</span>
+            <h3>{{ getData.name }}</h3>
+          <span>{{ getData.role }}</span>
           <i  class="drop_arrow"></i>
             <transition name="fade">
           <div v-show="dropdownMenu" class="dropdownMenu">
@@ -89,8 +89,8 @@
           <li class="user_menu">
 
            <img src="images/user_photo_default.svg" alt="user_ava" />
-          <h3>{{ userParams.nameUser }}</h3>
-          <span>{{ userParams.roleUser }}</span> </li>
+          <h3>{{ getData.name }}</h3>
+          <span>{{ getData.role }}</span> </li>
                 <li class="favorit_item_menu">
                         <a href="#">Избранное</a>
                     </li>
@@ -136,11 +136,7 @@ export default {
       signInModal: false,
       loginOn: true,
       dropdownMenu: false,
-      userParams: {
-          nameUser: "Александр Савченко",
-          roleUser: "Продавец"
 
-      }
     };
   },
   methods: {
@@ -154,6 +150,11 @@ export default {
     closeMenuUser(){
         return this.dropdownMenu = false
     }
+  },
+  computed: {
+      getData(){
+          return this.$store.getters.getData
+      }
   }
 };
 </script>

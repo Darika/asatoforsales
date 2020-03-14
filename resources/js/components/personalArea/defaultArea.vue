@@ -12,7 +12,9 @@
       </div>
       <div class="row">
           <sideBar/>
-            <settingBar/>
+          <component :is="currentBar"> </component>
+            <!-- <settingBar/>
+            <favoritesBar/> -->
       </div>
     </div>
   </section>
@@ -21,10 +23,22 @@
 <script>
 import sideBar from "./sideBar";
 import settingBar from "./settingBar"
+import favoritesBar from "./favoritesBar"
 export default {
   components: {
     sideBar,
-    settingBar
+    settingBar,
+    favoritesBar
+  },
+  data(){
+      return {
+          currentBar: 'settingBar'
+      }
+  },
+  methods: {
+      switchBar(view){
+          return this.currentBar = view
+      }
   }
 };
 </script>

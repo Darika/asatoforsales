@@ -5,7 +5,7 @@
       <span class="line__asato"></span>
       <div class="user_status">
         <img src="images/user_photo_default.svg" alt="user img" />
-        <h3>Александр Великий</h3>
+        <h3> {{getData.name }}</h3>
         <p>Продавец</p>
       </div>
       <span class="hr_asato"></span>
@@ -29,3 +29,18 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+    data(){
+        return{
+
+        }
+    },
+     computed: {
+      getData(){
+         return this.$store.getters.getData
+      }
+     }
+}
+</script>

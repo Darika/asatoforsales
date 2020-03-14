@@ -4,8 +4,12 @@
       <h3>Профиль</h3>
       <span class="line__asato"></span>
       <div class="user_avatar_container">
-        <p>Фотография профиля отстутсвует</p>
-        <img src="images/user_photo_default.svg" alt="user_avatar" />
+        <div v-show="!photoUser" class="user_avatar_box">
+          <p>Фотография профиля отстутсвует</p>
+
+        </div>
+
+         <img  v-show="photoUser" src="images/user_photo_default.svg" alt="user_avatar" />
         <label class="upload_photo" for="upload_photo">
           Загрузить фотографию
           <input id="upload_photo" type="file" />
@@ -15,26 +19,41 @@
       <div class="input_group_setting">
         <label>
           ФИО
-          <input value="Александр Савченко" type="text" />
+          <input v-model="getData.name" placeholder="Введите свое ФИО" type="text" />
         </label>
         <label>
           Статус
-          <input value="Продавец" disabled type="text" />
+          <input v-model="getData.role" disabled type="text" />
         </label>
         <label>
           Номер телефона
-          <input value="+ 7 (928) 451 45 78" placeholder type="tel" />
+          <input v-model="getData.tel" placeholder="Введите номер телефона" type="tel" />
         </label>
         <label>
           Электронная почта
-          <input value="asato@yandex.ru" type="email" />
+          <input v-model="getData.email" type="email" placeholder="Введите почту" />
         </label>
         <label>
           Город
-          <input value="Ростов-на-Дону" disabled type="text" />
+          <input v-model="getData.city" disabled type="text" />
         </label>
         <button class="btn__medium__premary">Сохранить</button>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      photoUser: false
+    };
+  },
+  computed: {
+    getData() {
+      return this.$store.getters.getData;
+    }
+  }
+};
+</script>
