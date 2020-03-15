@@ -4953,8 +4953,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     visibleModal: {
@@ -5023,12 +5021,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    currentRoute: {
+      type: String,
+      "default": 'settingBar'
+    }
+  },
   components: {
     sideBar: _sideBar__WEBPACK_IMPORTED_MODULE_0__["default"],
     settingBar: _settingBar__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -5036,12 +5038,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      currentBar: 'settingBar'
+      currentBar: this.currentRoute
     };
   },
   methods: {
-    switchBar: function switchBar(view) {
-      return this.currentBar = view;
+    onLoadBar: function onLoadBar(data) {
+      this.currentBar = data.current;
     }
   }
 });
@@ -5159,12 +5161,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['onLoadBar'],
   data: function data() {
-    return {};
+    return {
+      isBar: 'settingBar'
+    };
   },
   computed: {
     getData: function getData() {
       return this.$store.getters.getData;
+    }
+  },
+  methods: {
+    switchBar: function switchBar(view) {
+      this.isBar = view;
+      this.onLoadBar({
+        current: this.isBar
+      });
     }
   }
 });
@@ -11673,7 +11686,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.fade-enter-active,\n.fade-leave-active {\n  -webkit-transition: all 0.2s ease-in-out;\n  transition: all 0.2s ease-in-out;\n}\n.fade-enter,\n.fade-leave-to {\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.fade-enter-active,\r\n.fade-leave-active {\r\n  -webkit-transition: all 0.2s ease-in-out;\r\n  transition: all 0.2s ease-in-out;\n}\n.fade-enter,\r\n.fade-leave-to {\r\n  opacity: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -11692,7 +11705,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.fade-enter-active,\n.fade-leave-active {\n  -webkit-transition: all 0.2s ease-in-out;\n  transition: all 0.2s ease-in-out;\n}\n.fade-enter,\n.fade-leave-to {\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.fade-enter-active,\r\n.fade-leave-active {\r\n  -webkit-transition: all 0.2s ease-in-out;\r\n  transition: all 0.2s ease-in-out;\n}\n.fade-enter,\r\n.fade-leave-to {\r\n  opacity: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -11711,7 +11724,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.fade-enter-active,\n.fade-leave-active {\n  -webkit-transition: all 0.2s ease-in-out;\n  transition: all 0.2s ease-in-out;\n}\n.fade-enter,\n.fade-leave-to {\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.fade-enter-active,\r\n.fade-leave-active {\r\n  -webkit-transition: all 0.2s ease-in-out;\r\n  transition: all 0.2s ease-in-out;\n}\n.fade-enter,\r\n.fade-leave-to {\r\n  opacity: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -11749,7 +11762,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.fade-enter-active,\n.fade-leave-active {\n  -webkit-transition: all 0.2s ease-in-out;\n  transition: all 0.2s ease-in-out;\n}\n.fade-enter,\n.fade-leave-to {\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.fade-enter-active,\r\n.fade-leave-active {\r\n  -webkit-transition: all 0.2s ease-in-out;\r\n  transition: all 0.2s ease-in-out;\n}\n.fade-enter,\r\n.fade-leave-to {\r\n  opacity: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -11768,7 +11781,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.fade-enter-active,\n.fade-leave-active {\n  -webkit-transition: all 0.2s ease-in-out;\n  transition: all 0.2s ease-in-out;\n}\n.fade-enter,\n.fade-leave-to {\n  opacity: 0;\n    -webkit-transform: translateY(-10px);\n            transform: translateY(-10px)\n}\n", ""]);
+exports.push([module.i, "\n.fade-enter-active,\r\n.fade-leave-active {\r\n  -webkit-transition: all 0.2s ease-in-out;\r\n  transition: all 0.2s ease-in-out;\n}\n.fade-enter,\r\n.fade-leave-to {\r\n  opacity: 0;\r\n  -webkit-transform: translateY(-10px);\r\n          transform: translateY(-10px);\n}\r\n", ""]);
 
 // exports
 
@@ -104628,7 +104641,7 @@ var render = function() {
           }
         },
         [
-          _vm._v("\n      Отсортированно\n      "),
+          _vm._v("\r\n      Отсортированно\r\n      "),
           _vm._t("valueDefault", [_vm._v(_vm._s(_vm.selected))])
         ],
         2
@@ -105558,11 +105571,18 @@ var render = function() {
                         },
                         [
                           _c("ul", [
-                            _c("li", { staticClass: "favorit_item_menu" }, [
-                              _c("a", { attrs: { href: "#" } }, [
-                                _vm._v("Избранное")
-                              ])
-                            ]),
+                            _c(
+                              "li",
+                              { staticClass: "favorit_item_menu" },
+                              [
+                                _c(
+                                  "router-link",
+                                  { attrs: { to: "/personal-area-favorites" } },
+                                  [_vm._v("Избранное")]
+                                )
+                              ],
+                              1
+                            ),
                             _vm._v(" "),
                             _c("li", { staticClass: "message_item_menu" }, [
                               _c("a", { attrs: { href: "#" } }, [
@@ -105650,9 +105670,20 @@ var render = function() {
                     _c("span", [_vm._v(_vm._s(_vm.getData.role))])
                   ]),
                   _vm._v(" "),
-                  _vm._m(8),
+                  _c(
+                    "li",
+                    { staticClass: "favorit_item_menu" },
+                    [
+                      _c(
+                        "router-link",
+                        { attrs: { to: "/personal-area-favorites" } },
+                        [_vm._v("Избранное")]
+                      )
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
-                  _vm._m(9),
+                  _vm._m(8),
                   _vm._v(" "),
                   _c(
                     "li",
@@ -105665,9 +105696,9 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _vm._m(10),
+                  _vm._m(9),
                   _vm._v(" "),
-                  _vm._m(11)
+                  _vm._m(10)
                 ]),
                 _vm._v(" "),
                 _c("button", {
@@ -105706,9 +105737,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Агенства-партнеры")])
-    ])
+    return _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Партнеры")])])
   },
   function() {
     var _vm = this
@@ -105742,9 +105771,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Агенства-партнеры")])
-    ])
+    return _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Партнеры")])])
   },
   function() {
     var _vm = this
@@ -105759,14 +105786,6 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Контакты")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "favorit_item_menu" }, [
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Избранное")])
-    ])
   },
   function() {
     var _vm = this
@@ -105821,7 +105840,11 @@ var render = function() {
       _c(
         "div",
         { staticClass: "row" },
-        [_c("sideBar"), _vm._v(" "), _c(_vm.currentBar, { tag: "component" })],
+        [
+          _c("sideBar", { attrs: { onLoadBar: _vm.onLoadBar } }),
+          _vm._v(" "),
+          _c(_vm.currentBar, { tag: "component" })
+        ],
         1
       )
     ])
@@ -106275,14 +106298,48 @@ var render = function() {
           attrs: { src: "images/user_photo_default.svg", alt: "user img" }
         }),
         _vm._v(" "),
-        _c("h3", [_vm._v(" " + _vm._s(_vm.getData.name))]),
+        _c("h3", [_vm._v(_vm._s(_vm.getData.name))]),
         _vm._v(" "),
         _c("p", [_vm._v("Продавец")])
       ]),
       _vm._v(" "),
       _c("span", { staticClass: "hr_asato" }),
       _vm._v(" "),
-      _vm._m(0)
+      _c("ul", [
+        _c(
+          "li",
+          {
+            staticClass: "favorit_item_menu",
+            on: {
+              click: function($event) {
+                return _vm.switchBar("favoritesBar")
+              }
+            }
+          },
+          [
+            _c("a", { attrs: { href: "#" } }, [_vm._v("Избранное")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "informer_dot" }, [_vm._v("35")])
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "li",
+          {
+            staticClass: "user_item_menu",
+            on: {
+              click: function($event) {
+                return _vm.switchBar("settingBar")
+              }
+            }
+          },
+          [_c("a", { attrs: { href: "#" } }, [_vm._v("Профиль")])]
+        ),
+        _vm._v(" "),
+        _vm._m(1)
+      ])
     ])
   ])
 }
@@ -106291,26 +106348,18 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("ul", [
-      _c("li", { staticClass: "favorit_item_menu" }, [
-        _c("a", { attrs: { href: "#" } }, [_vm._v("Избранное")]),
-        _vm._v(" "),
-        _c("span", { staticClass: "informer_dot" }, [_vm._v("35")])
-      ]),
+    return _c("li", { staticClass: "message_item_menu" }, [
+      _c("a", { attrs: { href: "#" } }, [_vm._v("Сообщения")]),
       _vm._v(" "),
-      _c("li", { staticClass: "message_item_menu" }, [
-        _c("a", { attrs: { href: "#" } }, [_vm._v("Сообщения")]),
-        _vm._v(" "),
-        _c("span", { staticClass: "informer_dot" }, [_vm._v("2")])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "user_item_menu" }, [
-        _c("a", { attrs: { href: "#" } }, [_vm._v("Профиль")])
-      ]),
-      _vm._v(" "),
-      _c("li", { staticClass: "out_item_menu" }, [
-        _c("a", { attrs: { href: "#" } }, [_vm._v("Выход")])
-      ])
+      _c("span", { staticClass: "informer_dot" }, [_vm._v("2")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "out_item_menu" }, [
+      _c("a", { attrs: { href: "#" } }, [_vm._v("Выход")])
     ])
   }
 ]
@@ -124975,7 +125024,16 @@ __webpack_require__.r(__webpack_exports__);
     component: _components_ads_list_adsItem_adsPage_adPage__WEBPACK_IMPORTED_MODULE_3__["default"]
   }, {
     path: '/personal-area',
-    component: _components_personalArea_defaultArea_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _components_personalArea_defaultArea_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    props: {
+      currentRoute: 'settingBar'
+    }
+  }, {
+    path: '/personal-area-favorites',
+    component: _components_personalArea_defaultArea_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    props: {
+      currentRoute: 'favoritesBar'
+    }
   }],
   mode: 'history'
 }));
@@ -125245,10 +125303,10 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\serv\OSPanel\domains\asatoforsales\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\serv\OSPanel\domains\asatoforsales\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\serv\OSPanel\domains\asatoforsales\resources\sass\style.scss */"./resources/sass/style.scss");
-module.exports = __webpack_require__(/*! C:\serv\OSPanel\domains\asatoforsales\resources\sass\mixins.scss */"./resources/sass/mixins.scss");
+__webpack_require__(/*! C:\Users\zipan\OneDrive\Рабочий стол\asato\asatoforsales\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Users\zipan\OneDrive\Рабочий стол\asato\asatoforsales\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\zipan\OneDrive\Рабочий стол\asato\asatoforsales\resources\sass\style.scss */"./resources/sass/style.scss");
+module.exports = __webpack_require__(/*! C:\Users\zipan\OneDrive\Рабочий стол\asato\asatoforsales\resources\sass\mixins.scss */"./resources/sass/mixins.scss");
 
 
 /***/ })

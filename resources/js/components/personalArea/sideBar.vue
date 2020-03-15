@@ -5,12 +5,12 @@
       <span class="line__asato"></span>
       <div class="user_status">
         <img src="images/user_photo_default.svg" alt="user img" />
-        <h3> {{getData.name }}</h3>
+        <h3>{{getData.name }}</h3>
         <p>Продавец</p>
       </div>
       <span class="hr_asato"></span>
       <ul>
-        <li class="favorit_item_menu">
+        <li @click="switchBar('favoritesBar')" class="favorit_item_menu">
           <a href="#">Избранное</a>
           <span class="informer_dot">35</span>
         </li>
@@ -18,7 +18,7 @@
           <a href="#">Сообщения</a>
           <span class="informer_dot">2</span>
         </li>
-        <li class="user_item_menu">
+        <li @click="switchBar('settingBar')" class="user_item_menu">
           <a href="#">Профиль</a>
         </li>
         <!-- <li class="setting_item_menu" ><a href="#">Настройки</a></li> -->
@@ -32,15 +32,25 @@
 
 <script>
 export default {
-    data(){
-        return{
-
-        }
-    },
-     computed: {
-      getData(){
-         return this.$store.getters.getData
-      }
-     }
-}
+  props: ['onLoadBar'],
+  data() {
+    return {
+      isBar: 'settingBar'
+    };
+  },
+  computed: {
+    getData() {
+      return this.$store.getters.getData;
+    }
+  },
+  methods: {
+    switchBar(view) {
+      this.isBar = view
+      this.onLoadBar( {
+          current: this.isBar
+      })
+      
+    }
+  }
+};
 </script>

@@ -22,7 +22,13 @@ export default new VueRouter({
         },
         {
             path: '/personal-area',
-            component: personalArea
+            component: personalArea,
+            props: {currentRoute: 'settingBar'}
+        },
+        {
+            path: '/personal-area-favorites',
+            component: personalArea,
+            props: {currentRoute: 'favoritesBar'}
         }
 
     ],

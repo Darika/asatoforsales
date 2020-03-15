@@ -11,10 +11,8 @@
         </div>
       </div>
       <div class="row">
-          <sideBar/>
-          <component :is="currentBar"> </component>
-            <!-- <settingBar/>
-            <favoritesBar/> -->
+          <sideBar :onLoadBar="onLoadBar"/>
+          <component  :is="currentBar"> </component>
       </div>
     </div>
   </section>
@@ -25,6 +23,12 @@ import sideBar from "./sideBar";
 import settingBar from "./settingBar"
 import favoritesBar from "./favoritesBar"
 export default {
+  props: {
+    currentRoute: {
+      type: String,
+      default: 'settingBar'
+    }
+  },
   components: {
     sideBar,
     settingBar,
@@ -32,13 +36,14 @@ export default {
   },
   data(){
       return {
-          currentBar: 'settingBar'
+          currentBar: this.currentRoute,
+          
       }
   },
   methods: {
-      switchBar(view){
-          return this.currentBar = view
-      }
+    onLoadBar(data){
+        this.currentBar = data.current
+    }
   }
 };
 </script>

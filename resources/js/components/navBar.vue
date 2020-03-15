@@ -1,23 +1,22 @@
 <template>
   <div v-click-outside="closeMenuUser">
     <nav>
-      <router-link  to="/">
+      <router-link to="/">
         <img src="images/logo.png" alt="logo" />
-      </router-link >
+      </router-link>
 
       <ul class="menu__desktop">
         <li>
-
           <router-link to="/list-ads">Объявления</router-link>
         </li>
         <li>
           <a href="#">Статьи</a>
         </li>
         <li>
-          <a href="#">Агенства-партнеры</a>
+          <a href="#">Партнеры</a>
         </li>
         <li>
-           <a href="#">Карьева в ASATO</a>
+          <a href="#">Карьева в ASATO</a>
         </li>
         <li>
           <router-link to="/test-car" href="#">Контакты</router-link>
@@ -25,31 +24,31 @@
       </ul>
 
       <div v-if="loginOn" class="ml-auto menu__desktop__user">
-        <div  @click="dropdownMenu = !dropdownMenu" class="user_menu">
+        <div @click="dropdownMenu = !dropdownMenu" class="user_menu">
           <img src="images/user_photo_default.svg" alt="user_ava" />
-            <h3>{{ getData.name }}</h3>
+          <h3>{{ getData.name }}</h3>
           <span>{{ getData.role }}</span>
-          <i  class="drop_arrow"></i>
-            <transition name="fade">
-          <div v-show="dropdownMenu" class="dropdownMenu">
-                    <ul>
-                    <li class="favorit_item_menu">
-                        <a href="#">Избранное</a>
-                    </li>
-                    <li class="message_item_menu">
-                        <a href="#">Сообщения</a>
-                    </li>
-                    <li class="user_item_menu">
-                         <router-link to="/personal-area">Профиль</router-link>
-                    </li>
-                    <!-- <li class="setting_item_menu">
+          <i class="drop_arrow"></i>
+          <transition name="fade">
+            <div v-show="dropdownMenu" class="dropdownMenu">
+              <ul>
+                <li class="favorit_item_menu">
+                  <router-link to="/personal-area-favorites">Избранное</router-link>
+                </li>
+                <li class="message_item_menu">
+                  <a href="#">Сообщения</a>
+                </li>
+                <li class="user_item_menu">
+                  <router-link to="/personal-area">Профиль</router-link>
+                </li>
+                <!-- <li class="setting_item_menu">
                         <a href="#">Настройки</a>
-                    </li> -->
-                    <li class="out_item_menu">
-                        <a href="#">Выход</a>
-                    </li>
-                    </ul>
-          </div>
+                </li>-->
+                <li class="out_item_menu">
+                  <a href="#">Выход</a>
+                </li>
+              </ul>
+            </div>
           </transition>
         </div>
 
@@ -72,13 +71,13 @@
       <div v-if="showBar" class="menu__mobile">
         <ul class="menu__mobile__list">
           <li>
-             <router-link to="/list-ads">Объявления</router-link>
+            <router-link to="/list-ads">Объявления</router-link>
           </li>
           <li>
             <a href="#">Статьи</a>
           </li>
           <li>
-            <a href="#">Агенства-партнеры</a>
+            <a href="#">Партнеры</a>
           </li>
           <li>
             <a href="#">Карьева в ASATO</a>
@@ -87,28 +86,27 @@
             <a href="#">Контакты</a>
           </li>
           <li class="user_menu">
-
-           <img src="images/user_photo_default.svg" alt="user_ava" />
-          <h3>{{ getData.name }}</h3>
-          <span>{{ getData.role }}</span> </li>
-                <li class="favorit_item_menu">
-                        <a href="#">Избранное</a>
-                    </li>
-                    <li class="message_item_menu">
-                        <a href="#">Сообщения</a>
-                    </li>
-                    <li class="user_item_menu">
-                      <router-link to="/personal-area">Профиль</router-link>
-                    </li>
-                    <!-- <li class="setting_item_menu">
+            <img src="images/user_photo_default.svg" alt="user_ava" />
+            <h3>{{ getData.name }}</h3>
+            <span>{{ getData.role }}</span>
+          </li>
+          <li class="favorit_item_menu">
+            <router-link to="/personal-area-favorites">Избранное</router-link>
+          </li>
+          <li class="message_item_menu">
+            <a href="#">Сообщения</a>
+          </li>
+          <li class="user_item_menu">
+            <router-link to="/personal-area">Профиль</router-link>
+          </li>
+          <!-- <li class="setting_item_menu">
                         <a href="#">Настройки</a>
-                    </li> -->
-                    <li class="out_item_menu">
-                        <a href="#">Выход</a>
-                    </li>
+          </li>-->
+          <li class="out_item_menu">
+            <a href="#">Выход</a>
+          </li>
 
-
-          <li  class="sign_in_mobile">
+          <li class="sign_in_mobile">
             <a href="#">Вход</a>
           </li>
         </ul>
@@ -121,9 +119,7 @@
 </template>
 
 <script>
-
 export default {
-
   props: {
     visibleModal: {
       type: Boolean,
@@ -135,8 +131,7 @@ export default {
       showBar: false,
       signInModal: false,
       loginOn: true,
-      dropdownMenu: false,
-
+      dropdownMenu: false
     };
   },
   methods: {
@@ -147,14 +142,14 @@ export default {
       this.signInModal = !this.signInModal;
       this.$emit("invisPopUp", this.visibleModal);
     },
-    closeMenuUser(){
-        return this.dropdownMenu = false
+    closeMenuUser() {
+      return (this.dropdownMenu = false);
     }
   },
   computed: {
-      getData(){
-          return this.$store.getters.getData
-      }
+    getData() {
+      return this.$store.getters.getData;
+    }
   }
 };
 </script>
@@ -163,11 +158,10 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.2s ease-in-out;
-
 }
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
-    transform: translateY(-10px)
+  transform: translateY(-10px);
 }
 </style>
